@@ -162,54 +162,70 @@ int apagar() //Função responsável por apagar os usuários do sistema
 
 int main() //Função do menu inicial do programa
 {
+	setlocale(LC_ALL, "Portuguese"); //define idioma para português
 	int opcao=0; //definindo variáveis
 	int laco=1; //Variável do loop do menu
-		
-	for (laco=1;laco=1;) //Mantém o programa rodando até o usuário decidir sair
+	char senhadigitada[10]= "a";
+	int comparacao;
 	
+	printf("    CARTÓRIO DA EBAC    \n\n");
+	printf("Login de administrador\n\nDigite a senha:");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
 	
-		system("cls"); //Limpa a tela
 		
-		setlocale(LC_ALL, "Portuguese"); //define idioma para português
-	
-		//início do menu
-		printf("    CARTÓRIO DA EBAC    \n\n"); 
-		printf("Escolha a opção no menu:\n\n");	
-		printf("\t1 - Cadastrar usuários\n");
-		printf("\t2 - Consultar usuários\n");
-		printf("\t3 - Apagar usuários\n");
-		printf("\t4 - Sair\n\n");
-		printf("Opção:"); 
-		//fim do menu
-	
-		scanf("%d", &opcao); //armazenando escolha do usuário
-	
-		system("cls"); //limpar tela
+		for (laco=1;laco=1;) //Mantém o programa rodando até o usuário decidir sair
 		
-		switch(opcao) //Verifica qual opção o susário escolheu e exibe a função desejada
 		{
-			case 1:
-				registrar(); //Exibe a função para registrar um usuário
-				break;
+		
+			system("cls"); //Limpa a tela
+			
+			
+		
+			//início do menu
+			printf("    CARTÓRIO DA EBAC    \n\n"); 
+			printf("Escolha a opção no menu:\n\n");	
+			printf("\t1 - Cadastrar usuários\n");
+			printf("\t2 - Consultar usuários\n");
+			printf("\t3 - Apagar usuários\n");
+			printf("\t4 - Sair\n\n");
+			printf("Opção:"); 
+			//fim do menu
+		
+			scanf("%d", &opcao); //armazenando escolha do usuário
+		
+			system("cls"); //limpar tela
+			
+			switch(opcao) //Verifica qual opção o susário escolheu e exibe a função desejada
+			{
+				case 1:
+					registrar(); //Exibe a função para registrar um usuário
+					break;
+					
+				case 2:
+					consultar(); //Exibe a função para consultar um usuário
+					break;
 				
-			case 2:
-				consultar(); //Exibe a função para consultar um usuário
-				break;
-			
-			case 3:
-				apagar(); //Exibe a função para apagar um usuário
-				break;
-			
-			case 4:
-				return 0; //Sai do programa
+				case 3:
+					apagar(); //Exibe a função para apagar um usuário
+					break;
 				
-			default:
-				printf("Opção inválida\n"); //Exibe mensagem de erro caso a opção escolhida seja inválida
-				system("pause"); //Pausa o programa até o usuário pressionar uma tecla
-				break;	
-							
-			
-		}	 
+				case 4:
+					return 0; //Sai do programa
+					
+				default:
+					printf("Opção inválida\n"); //Exibe mensagem de erro caso a opção escolhida seja inválida
+					system("pause"); //Pausa o programa até o usuário pressionar uma tecla
+					break;	
+								
+				
+			}	 
+		}
 	}
+	else
+	printf("Senha incorreta");
 }
